@@ -57,4 +57,12 @@ Make use of gRPC Gateway (while leveraging cmux) to also provide a REST API
 % curl -d '{"rocket": {"id": "6180ef22-16e8-4f43-8e81-7c8245be69f7", "name": "MISSION-01", "type": "Falcon Heavy"}}' \
   -H 'Content-Type: application/json' -X POST http://localhost:50051/v1/rocket/DeleteRocket
 {"status":"successfully deleted rocket"}
+
+% curl -i -d '{"rocket": {"id": "not valid", "name": "MISSION-01", "type": "Falcon Heavy"}}' -H 'Content-Type: application/json' -X POST http://localhost:50051/v1/rocket/AddRocket
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Date: Sun, 05 Dec 2021 23:48:05 GMT
+Content-Length: 53
+
+{"code":3,"message":"uuid is not valid","details":[]}
 ```
