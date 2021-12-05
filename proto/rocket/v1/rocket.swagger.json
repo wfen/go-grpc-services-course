@@ -1,0 +1,210 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "proto/rocket/v1/rocket.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "RocketService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/rocket/AddRocket": {
+      "post": {
+        "operationId": "RocketService_AddRocket",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/rocketAddRocketResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/rocketAddRocketRequest"
+            }
+          }
+        ],
+        "tags": [
+          "RocketService"
+        ]
+      }
+    },
+    "/v1/rocket/DeleteRocket": {
+      "post": {
+        "operationId": "RocketService_DeleteRocket",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/rocketDeleteRocketResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/rocketDeleteRocketRequest"
+            }
+          }
+        ],
+        "tags": [
+          "RocketService"
+        ]
+      }
+    },
+    "/v1/rocket/GetRocket": {
+      "post": {
+        "operationId": "RocketService_GetRocket",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/rocketGetRocketResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/rocketGetRocketRequest"
+            }
+          }
+        ],
+        "tags": [
+          "RocketService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rocketAddRocketRequest": {
+      "type": "object",
+      "properties": {
+        "rocket": {
+          "$ref": "#/definitions/rocketRocket"
+        }
+      },
+      "title": "-- Add Rocket Message Types --"
+    },
+    "rocketAddRocketResponse": {
+      "type": "object",
+      "properties": {
+        "rocket": {
+          "$ref": "#/definitions/rocketRocket"
+        }
+      }
+    },
+    "rocketDeleteRocketRequest": {
+      "type": "object",
+      "properties": {
+        "rocket": {
+          "$ref": "#/definitions/rocketRocket"
+        }
+      },
+      "title": "-- Delete Rocket Message Types --"
+    },
+    "rocketDeleteRocketResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "rocketGetRocketRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "-- Get Rocket Message Types --"
+    },
+    "rocketGetRocketResponse": {
+      "type": "object",
+      "properties": {
+        "rocket": {
+          "$ref": "#/definitions/rocketRocket"
+        }
+      }
+    },
+    "rocketRocket": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

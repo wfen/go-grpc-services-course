@@ -1,0 +1,16 @@
+# See https://docs.buf.build/lint-usage
+# See https://docs.buf.build/breaking-usage
+version: v1
+name: buf.build/wfen/go-grpc-services-course
+deps:
+  - buf.build/googleapis/googleapis
+  - buf.build/grpc-ecosystem/grpc-gateway
+lint:
+  allow_comment_ignores: true
+  use:
+    - DEFAULT
+  except:
+    - PACKAGE_VERSION_SUFFIX
+breaking:
+  use:
+    - FILE
